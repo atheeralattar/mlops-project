@@ -1,0 +1,1 @@
+{"startingAirport": "str", "destinationAirport": "str", "isBasicEconomy": "bool", "isRefundable": "bool", "isNonStop": "bool", "totalFare": "float64", "departure_hour": "int64", "departure_day": "str", "departure_month": "int64", "days_to_departure": "int64", "DISTANCE": "int64"}
