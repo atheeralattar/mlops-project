@@ -1,9 +1,78 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" version="24.7.6">
   <diagram name="Page-1" id="nfk1LLhB86Wsg8MtK5AY">
-    <mxGraphModel>
+    <mxGraphModel dx="1434" dy="915" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-22" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;arcSize=4;dashed=1;strokeColor=#FF3333;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="130" y="51" width="520" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-23" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;arcSize=4;dashed=1;strokeColor=#3333FF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="130" y="501" width="520" height="549" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=2;strokeColor=#009900;flowAnimation=1;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-1" target="LJFpRtgv6IlaCrO2Dpqf-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-1" value="Start Run" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=3;strokeColor=#009900;flowAnimation=1;endArrow=openThin;endFill=0;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-2" target="LJFpRtgv6IlaCrO2Dpqf-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-2" value="Create experiment with name = model_class.name" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=3;strokeColor=#009900;flowAnimation=1;endArrow=openThin;endFill=0;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-4" target="LJFpRtgv6IlaCrO2Dpqf-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-4" value="Save artifacts and params" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=3;strokeColor=#009900;flowAnimation=1;endArrow=openThin;endFill=0;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-6" target="LJFpRtgv6IlaCrO2Dpqf-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-6" value="for run in experiments, get highest r2_score" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="390" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=3;strokeColor=#009900;flowAnimation=1;endArrow=openThin;endFill=0;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-8" target="LJFpRtgv6IlaCrO2Dpqf-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-8" value="for models in mode registry" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-13" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;strokeWidth=3;strokeColor=#009900;flowAnimation=1;endArrow=openThin;endFill=0;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-10" target="LJFpRtgv6IlaCrO2Dpqf-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-16" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;strokeWidth=3;strokeColor=#009900;flowAnimation=1;endArrow=openThin;endFill=0;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-10" target="LJFpRtgv6IlaCrO2Dpqf-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-10" value="is a registry with name exp.name exist?" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="630" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-12" value="create a registry named exp.name and register higher run" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="960" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-18" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;strokeWidth=3;strokeColor=#009900;flowAnimation=1;endArrow=openThin;endFill=0;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-14" target="LJFpRtgv6IlaCrO2Dpqf-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-21" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=3;strokeColor=#009900;flowAnimation=1;endArrow=openThin;endFill=0;" edge="1" parent="1" source="LJFpRtgv6IlaCrO2Dpqf-14" target="LJFpRtgv6IlaCrO2Dpqf-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-14" value="Is the latest registered version parameter higher&amp;nbsp;&lt;div&gt;than the top run?&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="740" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-17" value="Do nothing" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="960" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-20" value="Register new version of the model under the same exp.name" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="960" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-24" value="Tracking" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontColor=#FF3333;" vertex="1" parent="1">
+          <mxGeometry x="530" y="80" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LJFpRtgv6IlaCrO2Dpqf-25" value="Registry" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontColor=#0000FF;" vertex="1" parent="1">
+          <mxGeometry x="530" y="530" width="60" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
