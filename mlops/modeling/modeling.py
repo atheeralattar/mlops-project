@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
-from mlops.tracking.mlflow import mlflow_default_logging, check_expirement_if_not_exist
+from mlops.tracking.mlflow import *
 import os
 import time
 import mlflow
@@ -23,7 +23,7 @@ import warnings
 def train(df, tracking_uri):
     mlflow.autolog()
     mlflow.set_tracking_uri(tracking_uri)
-    for model_class in [Lasso]:
+    for model_class in [Ridge]:
         mlflow.set_experiment(model_class.__name__)
         with mlflow.start_run() as run:
             target = 'totalFare'

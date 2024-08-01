@@ -46,21 +46,24 @@ def check_registry_if_not_exist(experiment):
     registered_models = client.search_registered_models()
     for registred_model in registered_models:
         registered_models_names.append(registred_model.name)
-    run_id = pick_top_run(experiment)
+    print(f'registered models: {registered_models_names}, \
+          exp. name: {experiment.name}')
+    
+    run_id = pick_top_run(experiment, 'r2_test')
     model_uri = f"runs:/{run_id}/model"
     if experiment.name not in registered_models_names:
-        mlflow.register_model(model_uri, experiment.experemint_name)
-    elif mlflow.get_run(run_id).data.metrics['r2_test'] > \
-        get_model_info(experiment.name, 'r2_test'):
+        mlflow.register_model(model_uri, experiment.name)
+    elif mlflow.get_run(run_id).data.metrics['r2_test'] >=\
+        _get_model_info(experiment.name, 'r2_test'):
         model_uri = f"runs:/{run_id}/model"
-        mlflow.register_model(model_uri, experiment.experemint_name)
+        mlflow.register_model(model_uri, experiment.name)
     else:
-        print(f'No mode was registered for {experiment.name}')
+        print(f'No model was registered for {experiment.name}')
         
     
         
         
-def get_model_info(model_name, metric_name='r2_test'):
+def _get_model_info(model_name, metric_name='r2_test'):
     """get the latest model version parameter
 
     Args:
