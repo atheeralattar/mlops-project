@@ -11,10 +11,33 @@ def mlflow_default_logging(model, model_tag, X_train, y_train, X_test, y_test):
     mlflow.set_tag("model", model_tag)
     r2=r2_score(y_test, yp_test)
     mlflow.log_metric("r2_test", r2)
+
+def pick_top_run(experiment: object, parameter):
+    """ Picks the top run for a given experiment
+
+    Args:
+        experiment (obj): experiment object coming from search expirements
+        parameter (str): parameter needed to sort the experiments according to
+
+    Returns:
+        top_run_id (str): run object from search run
+    """
+    client = MlflowClient()
+    for run in client.search_runs(experiment.experiment_id):
+        top_run = client.search_runs(
+        experiment_ids=experiment.experiment_id,
+        filter_string=f"metrics.{parameter} > 0",
+        order_by=[f"metrics.{parameter} DESC"],
+        max_results = 1    
+        )
+        
+    return top_run[0].info.run_id
     
+        
 def check_registry_if_not_exist(experiment):
     """ checks and creates a registry if not created
-        and register the top run from that experiment
+        and register the top run from that experiment. If an experiment is exist
+        then compare latest version parameter and register if new one is better.
     Args:
         experiment_name (obj): experiment object
     """
@@ -23,8 +46,19 @@ def check_registry_if_not_exist(experiment):
     registered_models = client.search_registered_models()
     for registred_model in registered_models:
         registered_models_names.append(registred_model.name)
+    run_id = pick_top_run(experiment)
+    model_uri = f"runs:/{run_id}/model"
     if experiment.name not in registered_models_names:
-        mlflow.register_model()
+        mlflow.register_model(model_uri, experiment.experemint_name)
+    elif mlflow.get_run(run_id).data.metrics['r2_test'] > \
+        get_model_info(experiment.name, 'r2_test'):
+        model_uri = f"runs:/{run_id}/model"
+        mlflow.register_model(model_uri, experiment.experemint_name)
+    else:
+        print(f'No mode was registered for {experiment.name}')
+        
+    
+        
         
 def get_model_info(model_name, metric_name='r2_test'):
     """get the latest model version parameter
@@ -50,36 +84,10 @@ def get_model_info(model_name, metric_name='r2_test'):
         # Extract the desired metric
         metric_value = run.data.metrics.get(metric_name)
         
-        return {
-            "model_name": model_name,
-            "version": latest_version.version,
-            "run_id": run_id,
-            f"{metric_name}": metric_value
-        }
+        return metric_value
     except Exception as e:
         print(f"Error getting info for model {model_name}: {str(e)}")
         return None
 
 
-def pick_top_run(experiment: object, parameter):
-    """ Picks the top run for a given experiment
 
-    Args:
-        experiment (obj): experiment object coming from search expirements
-        parameter (str): parameter needed to sort the experiments according to
-
-    Returns:
-        top_run_id (str): run object from search run
-    """
-    client = MlflowClient()
-    for run in client.search_runs(experiment.experiment_id):
-        top_run = client.search_runs(
-        experiment_ids=experiment.experiment_id,
-        filter_string=f"metrics.{parameter} > 0",
-        order_by=[f"metrics.{parameter} DESC"],
-        max_results = 1    
-        )
-        
-    return top_run[0].info.run_id
-    
-    
