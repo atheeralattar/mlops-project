@@ -10,7 +10,7 @@ blocks:
   language: python
   name: data_loader
   retry_config: null
-  status: failed
+  status: updated
   timeout: null
   type: data_loader
   upstream_blocks: []
@@ -46,7 +46,7 @@ blocks:
   language: python
   name: mode_training
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: custom
   upstream_blocks:

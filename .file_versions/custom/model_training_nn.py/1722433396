@@ -23,7 +23,7 @@ def transform_custom(data, *args, **kwargs):
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
     tracking_uri = kwargs['tracking_uri']
-    train_nn(data.sample(n=20000),tracking_uri)
+    train_nn(data.samp,tracking_uri)
 
     return "training complete"
 

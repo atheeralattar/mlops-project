@@ -23,8 +23,8 @@ import warnings
 def train(df, tracking_uri):
     mlflow.autolog()
     mlflow.set_tracking_uri(tracking_uri)
-    for model_class in [RandomForestRegressor, Lasso]:
-        check_expirement_if_not_exist(model_class.__name__)
+    for model_class in [Lasso]:
+        mlflow.set_experiment(model_class.__name__)
         with mlflow.start_run() as run:
             target = 'totalFare'
             X = df.drop(target, axis=1)
