@@ -10,11 +10,6 @@ If you want to book a flight chances that you will find several places offer the
 ![alt text](image.png)\
 *Generated using Google Gemini*
 
-
-
-
-
-
 - [X] Clear problem statement, describes the business need, the stakeholders and ROI of the the solution
 
 ### 2. Dataset
@@ -31,17 +26,10 @@ This function partially loads the csv file by specifying number of rows to sampl
 This function loads the full dataset (~30GB)
 #### 3.3. Data Prep (data_prep.py)
 This script processes the raw data and output a subset of the columns that we want to include them in our project, it also creates an extra feature (days before travel) to be added to the predictors set. The output dataframe will be used in the modeling module. It also cleans up the dataset and converts the linux style dates to a month, day, hour columns. It's worth mentioning here that our focus is on the the MLOps part, so data preparation was kept to minimal.
-
-
-
-
 - [x] Data Loader
-- [ ] Add making small dataset code to the initialization code
 - [x] Create a feature (Days before trip)
 - [x] Data Prep
 - [x] Ferature Engineering
-
-
 ### 3. Modeling (modeling.py)
 - [x] Basic Modeling
 - [x] Prediction
@@ -50,40 +38,39 @@ This script processes the raw data and output a subset of the columns that we wa
 - [ ] Monitoring
 - [ ] Serving
 - [ ] Model GUI
-
 #### 3.1 Models
 I have tried three models:
 * LinearRegression
 * Lasso
 * Ridge
-
+* RandomForest
+* Neural Networks
 evaulation metrics were R^2, RMSE and both were logged along with training visuals.
-
 #### 3.2 Orchestration and Training
 Mage was used to achieve the training, logging, registry and serving. Couple of issues were faced due to the size of the data, the product itself is relatively new. Below is a screenshot for one of the pipelines.
 ![alt text](image-2.png)
-#### 3.3 Tracking
-Mlflow was used to track modeling expirements, register models and serve a command line interface to test the model. Another helper function was created to perform most of the logging tasks.
-
-#### 3.4 Registry
+#### 3.3 Tracking and Registry
+Mlflow was used to track modeling expirements, register models and serve a command line interface to test the model. Another helper function was created to perform most of the logging tasks. I decided to write a whole module for the tracking and regitry, the logic of the model is explained in the following chart. The model creates a new experiment per algorithm, and picks the top runs of this experiment to register them in the model registry, if a registry is exist the it will update the model version if we got better r²_test value.
+![alt text](model-registry.gif)
 #### 3.3 Monitoring and Evaluation
-### Deployment
-#### Local Deployment 
+#### 3.4 Retraining Orchestration
+#### 3.5 Model Interaction GUI
+
+### 4. Deployment
+#### 4.1 Local Deployment 
 ![alt text](local-deployment.png)
 
-#### 3.6 Retraining Orchestration
+#### 4.2 Cloud Deployment
 
-#### 3.7 Serving and Packaging
+### 5. Best Practices
 
-#### 3.8 Model Interaction GUI
+### 6. Tecchnologies Used
 
-### 4. Best Practices
+### 6. Usage Examples
+#### 6.1. Cloud Environment
+#### 6.2. Local Environment
 
-### 5. Tecchnologies Used
-
-### 6. Execusion Examples
-
-
+### 7. Technical Debt
 
 ---
 
