@@ -7,8 +7,7 @@ import matplotlib.pyplot as plt
 st.title('Flight Price Predictor')
 
 
-# Add some introductory text
-st.write('This is a simple Streamlit app to get you started.')
+from mlops.data_processing.data_prep import *
 
 # Add a text input widget
 user_input = st.text_input('Enter some text:')

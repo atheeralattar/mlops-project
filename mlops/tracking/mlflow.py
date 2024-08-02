@@ -30,30 +30,30 @@ def pick_top_run(experiment: object, parameter):
         order_by=[f"metrics.{parameter} DESC"],
         max_results = 1    
         )
-        
+    print(experiment)
     return top_run[0].info.run_id
     
         
-def check_registry_if_not_exist(experiment):
+def check_registry_if_not_exist(tracking_uri):
     """ checks and creates a registry if not created
         and register the top run from that experiment. If an experiment is exist
         then compare latest version parameter and register if new one is better.
     Args:
         experiment_name (obj): experiment object
     """
+    mlflow.set_tracking_uri(tracking_uri)
+    experiment = mlflow.search_experiments()[0]
     client = MlflowClient()
     registered_models_names = []
     registered_models = client.search_registered_models()
     for registred_model in registered_models:
         registered_models_names.append(registred_model.name)
-    print(f'registered models: {registered_models_names}, \
-          exp. name: {experiment.name}')
     
     run_id = pick_top_run(experiment, 'r2_test')
     model_uri = f"runs:/{run_id}/model"
     if experiment.name not in registered_models_names:
         mlflow.register_model(model_uri, experiment.name)
-    elif mlflow.get_run(run_id).data.metrics['r2_test'] >=\
+    elif mlflow.get_run(run_id).data.metrics['r2_test'] >\
         _get_model_info(experiment.name, 'r2_test'):
         model_uri = f"runs:/{run_id}/model"
         mlflow.register_model(model_uri, experiment.name)

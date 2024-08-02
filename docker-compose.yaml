@@ -34,3 +34,4 @@ services:
       - "8501:8501"
     volumes:
       - ./streamlit:/app
+      - ./mlops:/app/mlops

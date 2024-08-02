@@ -23,8 +23,8 @@ import warnings
 def train(df, tracking_uri):
     mlflow.autolog()
     mlflow.set_tracking_uri(tracking_uri)
-    for model_class in [Ridge]:
-        mlflow.set_experiment(model_class.__name__)
+    for model_class in [RandomForestRegressor]:
+        mlflow.set_experiment(model_class.__name__+'5')
         with mlflow.start_run() as run:
             target = 'totalFare'
             X = df.drop(target, axis=1)
@@ -47,6 +47,7 @@ def train(df, tracking_uri):
             MODEL_TAG = model_class.__name__
             args = [model, MODEL_TAG, X_train, y_train, X_test, y_test]
             mlflow_default_logging(*args)
+            check_registry_if_not_exist(tracking_uri)
             
 
             
