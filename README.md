@@ -36,8 +36,8 @@ This script processes the raw data and output a subset of the columns that we wa
 - [x] Tracking
 - [ ] Evaluation
 - [ ] Monitoring
-- [ ] Serving
-- [ ] Model GUI
+- [x] Serving
+- [x] Model GUI
 #### 3.1 Models
 I have tried three models:
 * LinearRegression
