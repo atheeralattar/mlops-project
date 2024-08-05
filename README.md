@@ -55,9 +55,18 @@ Mlflow was used to track modeling expirements, register models and serve a comma
 #### 3.3 Monitoring and Evaluation
 #### 3.4 Retraining Orchestration
 #### 3.5 Model Interaction GUI
-
+Streamlit was deployed as a service within the docker stack to communicate with the mlflow service. A dropdown list of the registered models from the model registery is available. The rest of the inputs to the model are provided in the same UI, the prediction is done automatically once any value changes.
+![alt text](image-1.png)
 ### 4. Deployment
-#### 4.1 Local Deployment 
+#### 4.1 Local Deployment
+In order to deploy the model locally follow these steps:
+- Clone this repo `git clone https://github.com/atheeralattar/mlops-project.git`
+- `cd mlops-project`
+- `docker-compose up`
+- available services are:
+  - Mage UI at http://0.0.0.0:6789
+  - Mlflow UI at http://0.0.0.0:5000
+  - Streamlit UI at http://0.0.0.0:8501
 ![alt text](local-deployment.png)
 
 #### 4.2 Cloud Deployment
