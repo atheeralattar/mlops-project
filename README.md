@@ -1,5 +1,3 @@
-# MLOps-project
-
 # MLOps Zoomcamp Project
 
 ## Flight Price Prediction
@@ -80,6 +78,8 @@ and you can simply interact with the model from the Streamlit UI.
 #### 7.2. Techincal Debt
 * Streamlit functionality needs to be redesigned.
 * Mlflow functions need to be redesigned to abstract them out from the training functions.
+* Separate prediction functionality from streamlit
+* 
 
 ---
 
