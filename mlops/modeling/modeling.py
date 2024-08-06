@@ -23,8 +23,8 @@ import warnings
 def train(df, tracking_uri):
     mlflow.autolog()
     mlflow.set_tracking_uri(tracking_uri)
-    for model_class in [RandomForestRegressor]:
-        mlflow.set_experiment(model_class.__name__+'5')
+    for model_class in [RandomForestRegressor, Ridge, LinearRegression]:
+        mlflow.set_experiment(model_class.__name__)
         with mlflow.start_run() as run:
             target = 'totalFare'
             X = df.drop(target, axis=1)
@@ -39,6 +39,7 @@ def train(df, tracking_uri):
             X_test = dv.transform(test_dicts)
             y_train = y_train.values
             y_test = y_test.values
+            mlflow.sklearn.log_model(dv, "dict_vectorizer")
             
             # Fit model
             model = model_class()
