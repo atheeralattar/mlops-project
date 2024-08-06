@@ -21,7 +21,7 @@ This function does the needed data cleansing, dates conversion. Additionl featur
 #### 3.1. Partial Data Loader (partial_data_loader.py)
 This function partially loads the csv file by specifying number of rows to sample.
 #### 3.2. Full Data Loader (full_data_loader.py)
-**Warning** [ ] This function loads the full dataset (~30GB)
+> [!WARNING] This function loads the full dataset (~30GB)
 #### 3.3. Data Prep (data_prep.py)
 This script processes the raw data and output a subset of the columns that we want to include them in our project, it also creates an extra feature (days before travel) to be added to the predictors set. The output dataframe will be used in the modeling module. It also cleans up the dataset and converts the linux style dates to a month, day, hour columns. It's worth mentioning here that our focus is on the the MLOps part, so data preparation was kept to minimal.
 - [x] Data Loader
