@@ -9,8 +9,8 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./mlruns:/mlruns
-      - ./src:/app/your_codebase
+     - ./mlflow-presist/mlflow.db:/mlflow.db
+     - ./mlflow-presist:/mlartifacts
     environment:
       - MLFLOW_TRACKING_URI=http://localhost:5000
 
