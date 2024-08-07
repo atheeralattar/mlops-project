@@ -75,6 +75,8 @@ and you can simply interact with the model from the Streamlit UI.
 
 ### 7. Lessons learned and Technical Debt
 #### 7.1. Lessons Learned
+* It might be beneficial to use POSTGRESS instead of sqlite if we are concerned about presisting the data, in my case I had to manually create `mlflow.db` file once to make sure that tracking information presists after recreating the containers, all information is save inside the [mlflow-presist](./mlflow-presist) folder. I also found the [Sqlite Viewer](https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer) extension is very useful to inspect mlflow tracking data.
+
 #### 7.2. Techincal Debt
 * Streamlit functionality needs to be redesigned.
 * Mlflow functions need to be redesigned to abstract them out from the training functions.

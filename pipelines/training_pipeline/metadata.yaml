@@ -45,7 +45,7 @@ blocks:
   language: python
   name: mode_training
   retry_config: null
-  status: failed
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:
