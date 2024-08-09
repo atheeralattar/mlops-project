@@ -29,7 +29,6 @@ def create_airport_dropdowns(df):
     """
     # Get unique values for airport dropdowns
     starting_airports = sorted(df['startingAirport'].unique())
-    destination_airports = sorted(df['destinationAirport'].unique())
     
     # Define month names
     month_names = list(calendar.month_name)[1:]  # Excludes the empty string at index 0
@@ -43,6 +42,7 @@ def create_airport_dropdowns(df):
     # Create the dropdowns in separate columns
     with col1:
         selected_starting_airport = st.selectbox("Starting Airport", starting_airports, key="starting_airport_dropdown")
+        destination_airports = df.query('startingAirport==@selected_starting_airport')['destinationAirport']
         basic_economy = st.selectbox("Basic Economy", ["Yes", "No"], key="basic_economy_dropdown")
         is_refundable = st.selectbox("Is Refundable", ["Yes", "No"], key="is_refundable_dropdown")
         departure_day_of_week = st.selectbox("Day of Week", day_names, key="departure_day_of_week_dropdown")

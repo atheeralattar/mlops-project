@@ -31,15 +31,13 @@ selected_options = create_airport_dropdowns(df)
 startingAirport = selected_options['startingAirport']
 destinationAirport = selected_options['destinationAirport']
 
-try:
-    distance = df.query('startingAirport == @startingAirport and destinationAirport == @destinationAirport')['DISTANCE'].iloc[0]
-    selected_options['DISTANCE'] = distance
-    transformed_data = loaded_dv.transform(selected_options)
-    if destinationAirport == startingAirport:
-        fare_estimate = 'Start and Destination airports are the same.'
-    else:        
-        fare_estimate = loaded_model.predict(transformed_data)
-except:
-    fare_estimate = 'No available trips for this route.'
+
+distance = df.query('startingAirport == @startingAirport and destinationAirport == @destinationAirport')['DISTANCE'].iloc[0]
+selected_options['DISTANCE'] = distance
+transformed_data = loaded_dv.transform(selected_options)
+if destinationAirport == startingAirport:
+    fare_estimate = 'Start and Destination airports are the same.'
+else:        
+    fare_estimate = loaded_model.predict(transformed_data)
 
 st.write (f'Estimated Trip Price: {fare_estimate}')
