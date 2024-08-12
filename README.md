@@ -51,6 +51,8 @@ Mage was used to achieve the training, logging, registry and serving. Couple of 
 Mlflow was used to track modeling expirements, register models and serve a command line interface to test the model. Another helper function was created to perform most of the logging tasks. I decided to write a whole module for the tracking and regitry, the logic of the model is explained in the following chart. The model creates a new experiment per algorithm, and picks the top runs of this experiment to register them in the model registry, if a registry is exist the it will update the model version if we got better r²_test value.
 ![alt text](model-registry.gif)
 #### 4.5 Monitoring and Evaluation
+Evidently was implemented, a simple data drift model though, I had issues that cause the model pickle file to inflate, I remove the implementation since there was no time to troubleshoot, I added a snapshot of one of the local runs.
+![alt text](image-3.png)
 #### 4.6 Model Interaction GUI
 Streamlit was deployed as a service within the docker stack to communicate with the mlflow service. A dropdown list of the registered models from the model registery is available. The rest of the inputs to the model are provided in the same UI, the prediction is done automatically once any value changes.
 ![alt text](image-1.png)
