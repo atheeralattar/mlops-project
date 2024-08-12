@@ -33,16 +33,16 @@ This script processes the raw data and output a subset of the columns that we wa
 - [x] Prediction
 - [x] Tracking
 - [ ] Evaluation
-- [ ] Monitoring
+- [x] Monitoring
 - [x] Serving
 - [x] Model GUI
 #### 4.1 Models
 I have tried three models:
-* [ ] LinearRegression
-* [ ] Lasso
-* [ ] Ridge
-* [ ] RandomForest
-* [ ] Neural Networks
+* [x] LinearRegression
+* [x] Lasso
+* [x] Ridge
+* [x] RandomForest
+* [x] Neural Networks
 evaulation metrics were R^2, RMSE and both were logged along with training visuals.
 #### 4.2 Orchestration and Training
 Mage was used to achieve the training, logging, registry and serving. Couple of issues were faced due to the size of the data, the product itself is relatively new. Below is a screenshot for one of the pipelines.
@@ -94,7 +94,7 @@ and you can simply interact with the model from the Streamlit UI.
     * [ ] 1 point: The problem is described but shortly or not clearly 
     * [x] 2 points: The problem is well described and it's clear what the problem the project solves
 * [ ] Cloud
-    * [ ] 0 points: Cloud is not used, things run only locally
+    * [x] 0 points: Cloud is not used, things run only locally
     * [ ] 2 points: The project is developed on the cloud OR uses localstack (or similar tool) OR the project is deployed to Kubernetes or similar container management platforms
     * [ ] 4 points: The project is developed on the cloud and IaC tools are used for provisioning the infrastructure
 
@@ -114,8 +114,8 @@ and you can simply interact with the model from the Streamlit UI.
     * [ ] 4 points: The model deployment code is containerized and could be deployed to cloud or special tools for model deployment are used
 
 * [ ] Model monitoring
-    * [x] 0 points: No model monitoring
-    * [ ] 2 points: Basic model monitoring that calculates and reports metrics
+    * [ ] 0 points: No model monitoring
+    * [x] 2 points: Basic model monitoring that calculates and reports metrics
     * [ ] 4 points: Comprehensive model monitoring that sends alerts or runs a conditional workflow (e.g. retraining, generating debugging dashboard, switching to a different model) if the defined metrics threshold is violated
 
 * [ ] Reproducibility
